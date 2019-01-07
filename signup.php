@@ -9,7 +9,7 @@
                    
                    
               <img  src="assets/images/logo.png" alt="" width="72" height="72">
-              <h1 class="h3 mb-3 font-weight-normal">iTRaveler</h1>
+              <h1 class="h3 mb-3 font-weight-normal">iNGage</h1>
 
               <label for="inputName" class="sr-only">User Name</label>
               <input type="text" name="name" class="form-control" placeholder="User Name" required autofocus>
