@@ -27,7 +27,7 @@ require_once('ui/header.php');
               
               
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-              <button class="btn btn-lg btn-secondary btn-block" type="button" onclick="">Sign Up</button>
+              <button class="btn btn-lg btn-secondary btn-block" type="button" onclick="signUp()">Sign Up</button>
             
               <br>
                 <div class="checkbox mb-3">
@@ -43,6 +43,11 @@ require_once('ui/header.php');
 <?php
 include('ui/footer.php');
 ?>
+<script>
+    function signUp(){
+        location.href = "/signup.php";
+    }
+</script>
 
 </body>
 </html>
