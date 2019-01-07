@@ -1,0 +1,12 @@
+<?php
+require_once('ui/header.php');
+?>
+    <title>Home</title>
+</head>
+<body>
+<?php
+require_once('ui/navigation.php');
+?>
+<?php
+require_once('ui/footer.php');
+?>
