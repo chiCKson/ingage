@@ -13,7 +13,7 @@ require_once('ui/header.php');
             <form class="form-signin" action="" method="POST">
                    
                    
-              <img  src="{% static 'images/logo.png'%}" alt="" width="72" height="72">
+              <img  src="assets/images/logo.png" alt="" width="72" height="72">
               <h1 class="h3 mb-3 font-weight-normal">iNGage</h1>
             
             <!--  <div class="alert alert-danger">
