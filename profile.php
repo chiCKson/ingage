@@ -12,11 +12,16 @@ require_once('ui/header.php');
 <div class="card">
 	<table>
 		<tr>
-			<td rowspan="4" colspan="1" background="assets/images/bg.jpg" style=" background-size: cover;">
-				<img style="width:250px;height:250px"src="assets/images/logo.png" alt="Card image">
+			<td align="center" rowspan="3" width="30%">
+				<img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
 			</td>
 			<td>
 			<h4 class="card-title">John Doe</h4>
+			</td>
+			<td valign="top" align="right">
+			<button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal">
+    Edit Profile
+  </button>
 			</td>
 	
 		</tr>
@@ -30,13 +35,7 @@ require_once('ui/header.php');
 			<p>Male</p>
 			</td>
 		</tr>
-		<tr>
-			<td>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Edit Profile
-  </button>
-			</td>
-		</tr>
+		
 	</table>
   
 

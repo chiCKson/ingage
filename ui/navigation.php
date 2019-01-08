@@ -25,8 +25,8 @@
                         </div>
                       </li>
                   </ul>
-                  
-                        <button class="btn btn-outline-white my-2 my-sm-0" type="button" onclick="">Log Out</button>
+                   <a href="#"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
+                        
                 
                 </div>
               </nav>
