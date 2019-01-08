@@ -1,17 +1,16 @@
 <?php
-	class getConnection{
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbName="iNgageDB";
-
-
-$conn = mysqli_connect($servername, $username, $password,$dbName);
-
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+define('SERVER','localhost');
+define('USER','root');
+define('PASSWORD','');
+define('DATABASE','iNGagedb');
+class DB{
+	function con(){
+		$conn = mysqli_connect(SERVER, USER, PASSWORD,DATABASE);
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}else{
+			echo "Connected successfully";
+		}
+	}	
 }
-echo "Connected successfully";
-	}
 ?>
