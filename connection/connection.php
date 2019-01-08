@@ -7,9 +7,7 @@ class DB{
 	function con(){
 		$conn = mysqli_connect(SERVER, USER, PASSWORD,DATABASE);
 		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error());
-		}else{
-			echo "Connected successfully";
+			die("Connection failed: ".mysqli_connect_error());
 		}
 	}	
 }
