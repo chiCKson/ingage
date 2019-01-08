@@ -1,70 +1,57 @@
 <?php
 require_once('ui/header.php');
 ?>
-	<!DOCTYPE html>
-<html>
-<head>
-	<title>viwe proile</title>
+<!-- in fb profile page there is no form for viewing data its should be in edit profile use label instead of input-->
+<link rel="stylesheet" href="assets/styles/navbar.css">
+	<title>view profile</title>
 </head>
 <body>
-	<form action="URL" method="post">
-	<fieldset style="width:700px">
-    <legend>Personalia:</legend>
-	
-	<table>
-		<tr>
-			<td rowspan="6">
-				<img src="profilepic.jpg" alt="profile image"
-					name="profile" style="float:center;width:275px;height:250px;"></td>
-					
+<?php require_once('ui/navigation.php'); ?>
+<main role="main" class="container">
 
-		<tr>
-			<td>Name :</td>
-			<td><input  type="text" name="Fullname" size="15"></td>
-		</tr>
-		<tr>
-			<td>Lives in :</td>
-			<td><input  type="text" name="Lname" size="15"></td>
-		</tr>
-		<tr>
-			<td>Gender :</td>
-			<td><input type="radio" name="sex" value="Male">Male
-				<input type="radio" name="sex" value="female" checked>female</td>
-		</tr>
-		<tr>
-			<td>Birthday :</td>
-			<td><input type="date" max=2019-01-01 min=1950-01-01></td>
-		</tr>
-		<tr>
-			<td><input type="submit" value="Edit profile">	</td>
-		</tr>
-	
-	
-	</table>
-    
-	</fieldset>
-	
-	<fieldset style="width:700px">
-    <legend>Contact Details</legend>
+<div class="card">
 	<table>
-	<tr>
-		<!--<td><input type="image" src="ins.jpg" width="100" height="50" alt="button"></td>
-		<td><input type="image" src="tw.png" width="100" height="50" alt="button"></td>
-		<td><input type="image" src="link.png" width="100" height="50" alt="button"></td>
-		<td><input type="image" src="fac.jpg" width="100" height="50" alt="button"></td>-->
-	</tr>
-	<tr>
-		<td>Contact No:</td>
-		<td><input type ="tel"</td>
-		<td>Email :</td>
-		<td><input type="email"></td>
-	</tr>
+		<tr>
+			<td align="center" rowspan="3" width="30%">
+				<img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
+			</td>
+			<td>
+			<h4 class="card-title">John Doe</h4>
+			</td>
+			<td valign="top" align="right">
+			<button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal">
+    Edit Profile
+  </button>
+			</td>
 	
-	
-	
+		</tr>
+		<tr>
+			<td>
+			<p class="card-text">Homagama</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>Male</p>
+			</td>
+		</tr>
+		
 	</table>
+  
+
+   
+	
+	
+	
     
-  </fieldset>
-</form>
+  </div>
+</div>
+
+</main>
+
+<?php 
+require_once('ui/modal/editprofile.php');
+require_once('ui/footer.php');
+ ?>
 </body>
 </html>

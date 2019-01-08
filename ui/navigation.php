@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark bg-green">
             <a class="navbar-brand" href="#">
-                <img src="{% static 'images/logow.png' %}" width="30" height="30" alt="">
+                <img src="assets/images/logow.png" width="40" height="40" alt="">
               </a>
                 <a class="navbar-brand" href="#">iNGage</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,8 +25,8 @@
                         </div>
                       </li>
                   </ul>
-                  
-                        <button class="btn btn-outline-white my-2 my-sm-0" type="button" onclick="">Log Out</button>
+                   <a href="#"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
+                        
                 
                 </div>
               </nav>
