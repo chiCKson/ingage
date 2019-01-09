@@ -10,7 +10,7 @@ require_once('template/header.php');
       <div class="container">
           
      
-            <form class="form-signin" action="" method="POST">
+            <form class="form-signin" action="/login" method="POST">
                    
                    
               <img  src="assets/images/logo.png" alt="" width="72" height="72">
