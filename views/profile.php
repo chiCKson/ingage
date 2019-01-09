@@ -1,12 +1,14 @@
 <?php
-require_once('ui/header.php');
+require_once('template/header.php');
 ?>
 <!-- in fb profile page there is no form for viewing data its should be in edit profile use label instead of input-->
 <link rel="stylesheet" href="assets/styles/navbar.css">
 	<title>view profile</title>
 </head>
 <body>
-<?php require_once('ui/navigation.php'); ?>
+<?php require_once('template/navigation.php');
+echo $_GET['id'];
+ ?>
 <main role="main" class="container">
 
 <div class="card">
@@ -50,8 +52,8 @@ require_once('ui/header.php');
 </main>
 
 <?php 
-require_once('ui/modal/editprofile.php');
-require_once('ui/footer.php');
+require_once('template/modal/editprofile.php');
+require_once('template/footer.php');
  ?>
 </body>
 </html>

@@ -1,53 +1,38 @@
-<?php
-require_once('ui/header.php');
-?>
-  <link rel="stylesheet" href="assets/styles/signin.css">
-    <title>Login</title>
-</head>
-<body>
-
-<body class="text-center">
-      <div class="container">
-          
-     
-            <form class="form-signin" action="" method="POST">
-                   
-                   
-              <img  src="assets/images/logo.png" alt="" width="72" height="72">
-              <h1 class="h3 mb-3 font-weight-normal">iNGage</h1>
-            
-            <!--  <div class="alert alert-danger">
-                <strong>Warning!&nbsp;</strong>{{ msg }}
-              </div> -->
-           
-              <label for="inputEmail" class="sr-only">Email address</label>
-              <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" name="password" class="form-control" placeholder="Password" required>
-              
-              
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-              <button class="btn btn-lg btn-secondary btn-block" type="button" onclick="signUp()">Sign Up</button>
-            
-              <br>
-                <div class="checkbox mb-3">
-                        <label>
-                          <input type="checkbox" value="remember-me"> Remember me
-                        </label> &nbsp;&nbsp;&nbsp;&nbsp;
-                      <a href="">Forgot Password?</a>
-                    </div>
-         
-            </form>
-          </div>
-
-<?php
-include('ui/footer.php');
-?>
-<script>
-    function signUp(){
-        location.href = "/signup.php";
+<?php 
+$request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
+// Route it up!
+if($request_uri[1]!=null){
+    $request_uri_with_parameters = explode('=',$request_uri[1],2);
+    switch($request_uri[0]){
+        case '/profile':
+            header("id=123");
+            require 'views/profile.php';
+            break;
+            break;
+        default:
+            header('HTTP/1.0 404 Not Found');
+            require 'views/404.php';
+            break;
     }
-</script>
+}else{
+    switch ($request_uri[0]) {
+        // Home page
+        case '/':
+            require 'views/login.php';
+            break;
+        // profile page
+        case '/profile':
+            require 'views/profile.php';
+            break;
+        case '/signup':
+            require 'views/signup.php';
+            break;
+        // Everything else
+        default:
+            header('HTTP/1.0 404 Not Found');
+            require 'views/404.php';
+            break;
+    }
+}
 
-</body>
-</html>
+?>

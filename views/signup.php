@@ -1,4 +1,4 @@
-<?php require_once('ui/header.php'); ?>
+<?php require_once('template/header.php'); ?>
 <link rel="stylesheet" href="assets/styles/signin.css">
  <title>Sign Up</title>
    
@@ -12,13 +12,13 @@
               <h1 class="h3 mb-3 font-weight-normal">iNGage</h1>
 
               <label for="inputName" class="sr-only">User Name</label>
-              <input type="text" name="name" class="form-control" placeholder="User Name" required autofocus>
+              <input type="text" name="name" class="form-control" placeholder="User Name" reqtemplatered autofocus>
 
               <label for="inputEmail" class="sr-only">Email address</label>
-              <input type="email" name="email" class="form-control" placeholder="Email address" required >
+              <input type="email" name="email" class="form-control" placeholder="Email address" reqtemplatered >
 
               <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" name="password" class="form-control" placeholder="Password" required>
+              <input type="password" name="password" class="form-control" placeholder="Password" reqtemplatered>
  
               
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
