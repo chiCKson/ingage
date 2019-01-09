@@ -20,10 +20,6 @@ if($request_uri[1]!=null){
         case '/':
             require 'views/login.php';
             break;
-        // profile page
-        case '/profile':
-            require 'views/profile.php';
-            break;
         case '/signup':
             require 'views/signup.php';
             break;
