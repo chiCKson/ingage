@@ -45,7 +45,7 @@ include('template/footer.php');
 ?>
 <script>
     function signUp(){
-        location.href = "/signup.php";
+        location.href = "/signup";
     }
 </script>
 
