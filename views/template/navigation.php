@@ -25,7 +25,7 @@
                         </div>
                       </li>
                   </ul>
-                   <a href="#"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
+                   <a href="/signout"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
                         
                 
                 </div>
