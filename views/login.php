@@ -32,7 +32,7 @@ require_once('template/header.php');
               <br>
                 <div class="checkbox mb-3">
                         <label>
-                          <input type="checkbox" value="remember-me"> Remember me
+                          <input type="checkbox" name="remember" value="true"> Remember me
                         </label> &nbsp;&nbsp;&nbsp;&nbsp;
                       <a href="">Forgot Password?</a>
                     </div>
