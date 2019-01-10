@@ -17,7 +17,7 @@ require_once('template/header.php');
               <h1 class="h3 mb-3 font-weight-normal">iNGage</h1>
             
             <!--  <div class="alert alert-danger">
-                <strong>Warning!&nbsp;</strong>{{ msg }}
+                <strong>Warning!&nbsp;</strong>
               </div> -->
            
               <label for="inputEmail" class="sr-only">Email address</label>
@@ -42,6 +42,7 @@ require_once('template/header.php');
 
 <?php
 include('template/footer.php');
+//echo sha1('test'); 
 ?>
 <script>
     function signUp(){
