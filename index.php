@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once('functions/function.php');
+require_once('connection/connection.php');
 $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
     switch ($request_uri[0]) {
         case '/':

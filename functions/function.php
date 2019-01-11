@@ -4,6 +4,8 @@ function login(){
     $password = $_POST['password'];
     $pass_hashed = make_password_hashed($password);
     $_SESSION['loggedin'] = true;
+    $db = new DB();
+    $db->connect();
     if($_POST['remember']=='true'){
         //update db user with logged in
     }else{

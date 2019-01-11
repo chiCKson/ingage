@@ -1,8 +1,8 @@
 <?php
-define('SERVER','localhost');
-define('USER','root');
-define('PASSWORD','');
-define('DATABASE','iNGagedb');
+define('SERVER','localhost:3306');
+define('USER','user');
+define('PASSWORD','123');
+define('DATABASE','ingagedb');
 class DB{
 	function connect(){
 		$conn = mysqli_connect(SERVER, USER, PASSWORD,DATABASE);
