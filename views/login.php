@@ -19,6 +19,8 @@ require_once('template/header.php');
               echo  "<div class=\"alert alert-danger\">
               <strong>Warning! ".$_POST['alert-message']."&nbsp;</strong>
             </div>";
+            }else if(isset($_POST['success-message'])){
+              echo  "<div class=\"alert alert-success\"><strong>Success! ".$_POST['success-message']."&nbsp;</strong> </div>";
             }
             ?>
               <label for="inputEmail" class="sr-only">Email address</label>

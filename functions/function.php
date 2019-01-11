@@ -1,11 +1,12 @@
 <?php 
+ 
 function login(){
     $email =$_POST['email'];
     $password = $_POST['password'];
     $pass_hashed = make_password_hashed($password);
     $_SESSION['loggedin'] = true;
-    $db = new DB();
-    $db->connect();
+   
+    
     if($_POST['remember']=='true'){
         //update db user with logged in
     }else{
@@ -18,7 +19,22 @@ function make_password_hashed($pass){
     return md5(sha1($pass));
 }
 function register(){
-    echo "registered";
+    
+    if(!check_password_equility($_POST['password'],$_POST['confirm_password'])){
+        $_POST['alert-message']='Passwords are not the same.please retype the passwords';
+        require 'views/signup.php';
+    }else{
+        $db = new DB();
+        $password_hashed=make_password_hashed($_POST['password']);
+        $db->addUser($_POST['firstName'],$_POST['lastName'],$_POST['username'],$_POST['email'],$password_hashed,$_POST['dob'],$_POST['gender']);
+    }
+}
+function check_password_equility($pass1,$pass2){
+  
+    if($pass1==$pass2){
+        return true;
+    }
+    return false;
 }
 function check_previously_loggedin(){
    return $_SESSION['loggedin'];
