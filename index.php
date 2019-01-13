@@ -2,10 +2,15 @@
 session_start();
 require_once('functions/function.php');
 require_once('connection/connection.php');
+if(isset($_COOKIE['user_email'])){
+    if(!isset($_SESSION['current_user_email'])){
+        $_SESSION['current_user_email']=$_COOKIE['user_email'];
+    }
+}
 $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
     switch ($request_uri[0]) {
         case '/':
-            require 'views/login.php';
+            login();
             break;
         case '/signup':
             require 'views/signup.php';
@@ -18,6 +23,12 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
             break;
         case '/register':
             register();
+            break;
+        case '/home':
+            require 'views/home.php';
+            break;
+        case '/check':
+            echo $_COOKIE['user_email'];
             break;
         case '/signout':
             signout();

@@ -44,6 +44,8 @@ require_once('template/header.php');
           </div>
 
 <?php
+
+
 include('template/footer.php');
 ?>
 <script>

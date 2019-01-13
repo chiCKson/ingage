@@ -25,7 +25,12 @@
                         </div>
                       </li>
                   </ul>
-                   <a href="/signout"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
+                  <span style="color:white;padding-right:20px"><?php 
+                  if(isset($_SESSION['current_user_email'])){
+                     $full_name=get_user_full_name($_SESSION['current_user_email']);
+                      echo $full_name;
+                  }?></span>
+                  <a href="/signout"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
                         
                 
                 </div>
