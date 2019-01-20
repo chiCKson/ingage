@@ -36,6 +36,7 @@ echo $_GET['id'];
 		<tr>
 			<td>
 			<?php
+			//not finish,have to give user_id`
 			$sql = "select `sex` FROM `user` where `user_id`=1";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
@@ -51,6 +52,7 @@ echo $_GET['id'];
 		<tr>
 			<td>
 			<?php
+			//not finish,have to give user_id`
 			$sql = "select `email` FROM `user` where `user_id`=1";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
