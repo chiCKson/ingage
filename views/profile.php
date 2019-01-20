@@ -1,16 +1,11 @@
-<?php
-require_once('template/header.php');
-?>
-<!-- in fb profile page there is no form for viewing data its should be in edit profile use label instead of input-->
-<link rel="stylesheet" href="assets/styles/navbar.css">
-	<title>view profile</title>
-</head>
+<!DOCTYPE html>
+<html>
 <body>
 <?php require_once('template/navigation.php');
 echo $_GET['id'];
  ?>
 <main role="main" class="container">
-
+ 
 <div class="card">
 	<table>
 		<tr>
@@ -18,7 +13,18 @@ echo $_GET['id'];
 				<img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
 			</td>
 			<td>
-			<h4 class="card-title">John Doe</h4>
+			<?php
+			//not finish,have to give user_id`
+			$sql = "select `fName`, `lName` FROM `user` where `user_id`=1";
+			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result) > 0) {
+   
+				while($row = mysqli_fetch_assoc($result)) {
+				echo  "<h4 class="card-title">". $row["fName"]. " " . $row["lName"]. "</h4><br>";
+				}
+			} else {
+			echo "0 results";
+			}?>
 			</td>
 			<td valign="top" align="right">
 			<button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal">
@@ -29,24 +35,40 @@ echo $_GET['id'];
 		</tr>
 		<tr>
 			<td>
-			<p class="card-text">Homagama</p>
+			<?php
+			$sql = "select `sex` FROM `user` where `user_id`=1";
+			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result) > 0) {
+    
+				while($row = mysqli_fetch_assoc($result)) {
+					echo  "<p>" .$row["sex"]."</p><br>";
+				}
+			} else {
+				echo "0 results";
+			}?>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<p>Male</p>
+			<?php
+			$sql = "select `email` FROM `user` where `user_id`=1";
+			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result) > 0) {
+				
+				while($row = mysqli_fetch_assoc($result)) {
+					echo  "<p>". $row["email"]."</p><br>";
+				}
+			} else {
+				echo "0 results";
+			}?>
 			</td>
 		</tr>
 		
 	</table>
-  
+ 
 
-   
-	
-	
-	
-    
-  </div>
+
+ 
 </div>
 
 </main>
