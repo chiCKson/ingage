@@ -1,0 +1,25 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  .container {
+max-width: 960px;
+}
+
+.lh-condensed { line-height: 1.25; }
+.btn-primary{
+    background-color: #ea7128;
+    border-color:#ea7128;
+    
+  }
+  .btn-primary:hover{
+    background-color: #17a336;
+    border-color:#17a336;
+  
+  }

@@ -1,5 +1,6 @@
 <?php
 require_once('template/header.php');
+
 ?>
   <link rel="stylesheet" href="assets/styles/signin.css">
     <title>Login</title>
@@ -11,15 +12,17 @@ require_once('template/header.php');
           
      
             <form class="form-signin" action="/login" method="POST">
-                   
-                   
               <img  src="assets/images/logo.png" alt="" width="72" height="72">
               <h1 class="h3 mb-3 font-weight-normal">iNGage</h1>
-            
-            <!--  <div class="alert alert-danger">
-                <strong>Warning!&nbsp;</strong>
-              </div> -->
-           
+            <?php
+            if(isset($_POST['alert-message'])){
+              echo  "<div class=\"alert alert-danger\">
+              <strong>Warning! ".$_POST['alert-message']."&nbsp;</strong>
+            </div>";
+            }else if(isset($_POST['success-message'])){
+              echo  "<div class=\"alert alert-success\"><strong>Success! ".$_POST['success-message']."&nbsp;</strong> </div>";
+            }
+            ?>
               <label for="inputEmail" class="sr-only">Email address</label>
               <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
               <label for="inputPassword" class="sr-only">Password</label>
@@ -41,8 +44,9 @@ require_once('template/header.php');
           </div>
 
 <?php
+
+
 include('template/footer.php');
-//echo sha1('test'); 
 ?>
 <script>
     function signUp(){
