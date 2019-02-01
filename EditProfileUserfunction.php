@@ -1,6 +1,6 @@
 <?php
 
-//check 
+//check
 function GetUserDetails($conn,$userId)
 {
 	$query = "select * from user where id ='$userId'";
