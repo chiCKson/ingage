@@ -16,7 +16,7 @@ require_once('template/navigation.php');
 
  
 ?>
-<h1>this is home</h1>
+
 <div style="margin:50px">
 
 <table width="100%">
@@ -27,9 +27,9 @@ require_once('template/navigation.php');
     Events
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+  <?php 
+    get_all_events();
+    ?>
   </ul>
 </div>
    
@@ -41,16 +41,25 @@ require_once('template/navigation.php');
 <textarea  cols="102" rows="3" name="content" placeholder="What's on your mind" ></textarea>
                   
 
-  <button type="submit" class="btn btn-primary" style="margin-right:10px;"  name="post_status" >Share</button>
   
   
   
-  <input class="upload-btn-wrapper-file" type="file" name="myfile" onchange="readURL(this);"/>
   
+  
+  <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" onchange="readURL(this);" name="myfile"  aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  </div>
+</div>
 
 
 
   <img id="blah" src="http://placehold.it/180" alt="your image" width="100" height="100" />
+  <button type="submit" class="btn btn-primary" style="margin-right:10px;"  name="post_status" >Share</button>
 </form> 
             
                 <?php 
@@ -84,4 +93,6 @@ get_all_posts();
  
 
 </script>
+<?php require('views/template/footer.php');
+?>
 

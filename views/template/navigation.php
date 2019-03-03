@@ -15,11 +15,11 @@
                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Pollution 
+                          Events 
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="/humidity/">Humidity</a>
-                          <a class="dropdown-item" href="#">Water</a>
+                          <a class="dropdown-item" href="/create_events">Create Events</a>
+                          <a class="dropdown-item" href="#">View Events</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/total-pollution/">Total Pollution</a>
                         </div>

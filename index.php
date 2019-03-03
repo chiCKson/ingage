@@ -27,8 +27,11 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
         case '/home':
             require 'views/home.php';
             break;
-            case '/com':
+        case '/create_events':
             require 'views/comments.php';
+            break;
+        case '/add_event':
+            add_event();
             break;
         case '/signout':
             signout();

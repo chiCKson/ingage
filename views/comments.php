@@ -1,191 +1,58 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<?php
+require('views/template/header.php');
+?>
 <!------ Include the above in your HEAD tag ---------->
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags always come first -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-  <style>
-    .sms-send-page-wrapper{
-      background: #f6f9fc;
-
-    font-family: 'Abel', sans-serif;
-
-    }
-
-.sms-send-page .pull-left p {
-    color: #5b6773;
-    margin: 0;
-}
-.sms-send-page .pull-left small {
-    color: #637282;
-    font-size: 13px;
-}
-.sms-send-page .pull-left {
-    line-height: 18px;
-}
-.sms-send-page .list-group-item {
-    padding: 14px;
-      border: 1px solid #e6e8eb;
-       position: relative;
-}
-.sms-send-page .pull-right .btn {
-    border: medium none;
-    border-radius: 23px;
-    font-size: 14px;
-    font-weight: 900;
-    padding: 8px 20px;
-    text-transform: uppercase;
-}
-.sms-send-page .list-group {
-    box-shadow: 0 0 11px #eceeef;
-    margin: 120px 0px;
-}
-.sms-send-page .list-group-item:first-child {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-}
-.sms-send-page .list-group-item:last-child {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin-bottom: 0;
-}
-.sms-send-page .btn
-{
-  float: right;
-}
-.sms-send-page .btn-success
-{
-
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#15ad0c+0,007a00+100 */
-background: #15ad0c; /* Old browsers */
-background: -moz-linear-gradient(left, #15ad0c 0%, #007a00 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, #15ad0c 0%,#007a00 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, #15ad0c 0%,#007a00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15ad0c', endColorstr='#007a00',GradientType=1 ); /* IE6-9 */
-}
-.sms-send-page .btn-success:hover
-{
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#007a00+0,15ad0c+100 */
-  background: #007a00; /* Old browsers */
-  background: -moz-linear-gradient(left, #007a00 0%, #15ad0c 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #007a00 0%,#15ad0c 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #007a00 0%,#15ad0c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007a00', endColorstr='#15ad0c',GradientType=1 ); /* IE6-9 */
-}
-
-.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus {
-    outline: medium none;
-    outline-offset: 0;
-}
-.sms-send-page .pull-left, .sms-send-page .pull-right{
-  padding: 0px;
-}
-.sms-send-page .pull-left img {
-    width: 37px;
-    height: 37px;
-    float: left;
-    margin-right: 10px;
-}
-.sms-send-page .pull-left small .fa {
-    font-size: 9px;
-    vertical-align: middle;
-}
-  </style>
-
-</head>
-<body class="sms-send-page-wrapper">
-  <div class='container'>
-    <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <div class="sms-send-page">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <div class="col-xs-8 pull-left">
-                  <img class="img-circle img-rounded img-responsive" src="http://webncc.in/img/user/gurdeep-singh-osahan.jpg" alt="iamgurdeeposahan">
-                  <p><strong>Gurdeep Singh</strong></p>
-                  <small><i class="fa fa-circle text-success" aria-hidden="true"></i> Online</small>
+<div class="container-fluid bg-light py-3">
+    <form id="contact-form" method="post" action="/add_event" role="form">
+        <div class="messages"></div>
+        <div class="controls">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Event Name *</label>
+                        <input name="event_name" type="text" name="surname" class="form-control" placeholder="Please enter event name *" required="required" data-error="name is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
                 </div>
-                <div class="col-xs-4 pull-right">
-                  <button type="button" class="btn btn-success">invite <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_email">Date *</label>
+                        <input name="event_date" type="date" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
                 </div>
-                <div class="clearfix"></div>
-              </li>
-              <li class="list-group-item">
-                <div class="col-xs-8 pull-left">
-                  <img class="img-circle img-rounded img-responsive" src="http://webncc.in/img/user/gurdeep-singh-osahan.jpg" alt="iamgurdeeposahan">
-                  <p><strong>Osahan King</strong></p>
-                  <small><i class="fa fa-circle text-success" aria-hidden="true"></i> Online</small>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_phone">Location</label>
+                        <input name="location" type="tel" name="phone" class="form-control" placeholder="Please enter event location">
+                        <div class="help-block with-errors"></div>
+                    </div>
                 </div>
-                <div class="col-xs-4 pull-right">
-                  <button type="button" class="btn btn-success">invite <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-              <li class="list-group-item">
-                <div class="col-xs-8 pull-left">
-                  <img class="img-circle img-rounded img-responsive" src="http://webncc.in/img/user/gurdeep-singh-osahan.jpg" alt="iamgurdeeposahan">
-                  <p><strong>Jimmi Rana</strong></p>
-                  <small><i class="fa fa-circle text-danger" aria-hidden="true"></i> Offline</small>
-                </div>
-                <div class="col-xs-4 pull-right">
-                  <button type="button" class="btn btn-default">invite <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-              <li class="list-group-item">
-                <div class="col-xs-8 pull-left">
-                  <img class="img-circle img-rounded img-responsive" src="http://webncc.in/img/user/gurdeep-singh-osahan.jpg" alt="iamgurdeeposahan">
-                  <p><strong>Dalvir Toor</strong></p>
-                  <small><i class="fa fa-circle text-danger" aria-hidden="true"></i> Offline</small>
-                </div>
-                <div class="col-xs-4 pull-right">
-                  <button type="button" class="btn btn-default">invite <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-              <li class="list-group-item">
-                <div class="col-xs-8 pull-left">
-                  <img class="img-circle img-rounded img-responsive" src="http://webncc.in/img/user/gurdeep-singh-osahan.jpg" alt="iamgurdeeposahan">
-                  <p><strong>Black Smith</strong></p>
-                  <small><i class="fa fa-circle text-danger" aria-hidden="true"></i> Offline</small>
-                </div>
-                <div class="col-xs-4 pull-right">
-                  <button type="button" class="btn btn-default">invite <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-              <li class="list-group-item">
-                <div class="col-xs-8 pull-left">
-                  <img class="img-circle img-rounded img-responsive" src="http://webncc.in/img/user/gurdeep-singh-osahan.jpg" alt="iamgurdeeposahan">
-                  <p><strong>Jon Roy</strong></p>
-                  <small><i class="fa fa-circle text-danger" aria-hidden="true"></i> Offline</small>
-                </div>
-                <div class="col-xs-4 pull-right">
-                  <button type="button" class="btn btn-default">invite <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-    </div>
-  </div>
+        <div class="clearfix"></div>
 
-  <!-- jQuery first, then Bootstrap JS. -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-</body>
-
-</html>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Description *</label>
+                    <textarea name="description" name="message" class="form-control" placeholder="What is this event about*" rows="4" required="required" data-error="send a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-warning btn-send" value="Add Event">
+                <a href="/home" class="btn btn-warning btn-send">Back</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted"><strong>*</strong> These fields are required.</p>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+require('views/template/header.php');
+?>
