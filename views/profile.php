@@ -77,6 +77,26 @@ function get_data($sql){
     mysqli_free_result($result);
     disconnect($conn);
 }
+
+function show_userDetails(){
+    $sql  = "select  * from user where email='".$_GET['userid']."'";
+    
+    $users=get_data($sql);
+    $user=mysqli_fetch_assoc($users);
+    echo "<tr><td valign='top' colspan='3'><h1>".$user['name']."</h1><hr></td></tr><tr>
+    <td valign='top' rowspan='8'><img src='./img/profimage/".$user['profimage']."'></td>";
+    foreach($user as $key=>$value){
+        if($key=='coverimage'||$key=='Movie_id'){
+
+        }else{
+            echo "<td><Strong>".$key."</Strong><br>".$value."</td></tr><tr>";
+        }
+    }
+    echo "<td><a href='index.php'>Go back </a></td><td>";
+    
+
+
+}
 ?>
 
  
