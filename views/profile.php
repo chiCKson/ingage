@@ -16,56 +16,26 @@ echo $_GET['uid'];
 			<td>
 			<?php
 			
-			$sql = "select `fName`, `lName` FROM `user` where `email`='".$_GET['userid']."'";
+			$sql = "select `fName`, `lName` ,`email`,`sex` FROM `user` where `email`='".$_GET['userid']."'";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
    
 				while($row = mysqli_fetch_assoc($result)) {
-				echo  "<h4 class="card-title">". $row["fName"]. " " . $row["lName"]. "</h4><br>";
+				echo  "<h4 class="card-title">". $row["fName"]. " " . $row["lName"]. " " . $row["sex"]. "" . $row["email"]. "</h4><br>";
 				}
 			} else {
 			echo "0 results";
 			}?>
 			</td>
 			<td valign="top" align="right">
-			<button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal">
+			<button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal" name='edit_btn'>
     Edit Profile
   </button>
 			</td>
 	
 		</tr>
-		<tr>
-			<td>
-			<?php
-			
-			$sql = "select `sex` FROM `user` where `email`='".$_GET['userid']."'";
-			$result = mysqli_query($conn, $sql);
-			if (mysqli_num_rows($result) > 0) {
-    
-				while($row = mysqli_fetch_assoc($result)) {
-					echo  "<p>" .$row["sex"]."</p><br>";
-				}
-			} else {
-				echo "0 results";
-			}?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<?php
 		
-			$sql = "select `email` FROM `user` where `email`='".$_GET['userid']."'";
-			$result = mysqli_query($conn, $sql);
-			if (mysqli_num_rows($result) > 0) {
-				
-				while($row = mysqli_fetch_assoc($result)) {
-					echo  "<p>". $row["email"]."</p><br>";
-				}
-			} else {
-				echo "0 results";
-			}?>
-			</td>
-		</tr>
+	
 		
 	</table>
  
@@ -86,7 +56,7 @@ function show_userDetails(){
     echo "<tr><td valign='top' colspan='3'><h1>".$user['name']."</h1><hr></td></tr><tr>
     <td valign='top' rowspan='8'><img src='./img/profimage/".$user['profimage']."'></td>";
     foreach($user as $key=>$value){
-        if($key=='coverimage'||$key=='Movie_id'){
+        if($key=='profimage'||$key=='userid'){
 
         }else{
             echo "<td><Strong>".$key."</Strong><br>".$value."</td></tr><tr>";
@@ -97,6 +67,8 @@ function show_userDetails(){
 
 
 }
+if(isset($_GET[''edit_btn''])){
+               edit_use ();
 ?>
 
  
