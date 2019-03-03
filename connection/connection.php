@@ -40,5 +40,16 @@ class DB{
 			require 'views/login.php';
 		}
 	}
+	function set_data($conn,$sql){
+		if (mysqli_query($conn, $sql)) {
+			//nothing
+		} else {
+			echo "error".mysqli_error($conn);
+		}
+	}
+	function get_data($conn,$sql){
+		$result = mysqli_query($conn, $sql);
+		return $result;
+	}
 }    
 ?>

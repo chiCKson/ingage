@@ -107,6 +107,48 @@ function get_user_profile(){
         require 'views/profile.php';
     }
 }
+function share_post(){
+    $sql ="insert into posts (user_email,username,post,date) values('".$_SESSION['current_user_email']."','".get_user_full_name($_SESSION['current_user_email'])."','".$_POST['content']."',now())";
+    
+    $db = new DB();
+    $db->set_data($db->connect(),$sql);
+}
+function get_all_posts(){
+    $sql="select * from posts";
+    $db = new DB();
+    $posts=$db->get_data($db->connect(),$sql);
+    while($post=mysqli_fetch_assoc($posts)){
+echo '<br><div class="card">
+<div class="card-body">
+  <a href="/profile?email='.$post['user_email'].'"<h5 class="card-title">'.$post['username'].'</a></h5>
+  <p class="card-text">'.$post['post'].'.</p>
+  <p class="card-text"><small class="text-muted">Shared on '.$post['date'].'</small></p>
+</div>
+<img class="card-img-bottom" src="./assets/images/bg.jpg" alt="Card image cap">
+</div>';
+    }
+}
+function get_profile(){
+    $sql="select * from user where email='".$_GET['email']."'";
+    $db = new DB();
+    $users=$db->get_data($db->connect(),$sql);
+    while($user=mysqli_fetch_assoc($users)){
+        echo '<tr>
+        <td align="center" rowspan="3" width="30%">
+            <img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
+        </td>
+        <td>
+        <h4 class="card-title">'.$user['fName'].' '.$user['lName'].'</h4><br>
+        </td>
+        <td valign="top" align="right">
+        <button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal" name="edit_btn">
+Edit Profile
+</button>
+        </td>
 
+    </tr>
+    <tr><td>'.$user['email'].'</td></tr><tr><td>'.$user['date_of_birth'].'</td></tr>';
+    }
+}
 
 ?>
