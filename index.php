@@ -27,9 +27,6 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
         case '/home':
             require 'views/home.php';
             break;
-        case '/check':
-            echo $_COOKIE['user_email'];
-            break;
         case '/signout':
             signout();
             require 'views/login.php';
