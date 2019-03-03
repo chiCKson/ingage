@@ -108,7 +108,7 @@ function get_user_profile(){
     }
 }
 function share_post(){
-    $sql ="insert into posts (user_email,username,post,date) values('".$_SESSION['current_user_email']."','".get_user_full_name($_SESSION['current_user_email'])."','".$_POST['content']."',now())";
+    $sql ="insert into posts (user_email,username,post,date,image) values('".$_SESSION['current_user_email']."','".get_user_full_name($_SESSION['current_user_email'])."','".$_POST['content']."',now(),'".basename( $_FILES["myfile"]["name"])."')";
     
     $db = new DB();
     $db->set_data($db->connect(),$sql);
@@ -124,7 +124,7 @@ echo '<br><div class="card">
   <p class="card-text">'.$post['post'].'.</p>
   <p class="card-text"><small class="text-muted">Shared on '.$post['date'].'</small></p>
 </div>
-<img class="card-img-bottom" src="./assets/images/bg.jpg" alt="Card image cap">
+<img class="card-img-bottom" src="./uploads/'.$post['image'].'" alt="Card image cap">
 </div>';
     }
 }
@@ -133,6 +133,7 @@ function get_profile(){
     $db = new DB();
     $users=$db->get_data($db->connect(),$sql);
     while($user=mysqli_fetch_assoc($users)){
+       if($_GET['email']== $_SESSION['current_user_email']){
         echo '<tr>
         <td align="center" rowspan="3" width="30%">
             <img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
@@ -148,7 +149,66 @@ Edit Profile
 
     </tr>
     <tr><td>'.$user['email'].'</td></tr><tr><td>'.$user['date_of_birth'].'</td></tr>';
+       }else{
+        echo '<tr>
+        <td align="center" rowspan="3" width="30%">
+            <img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
+        </td>
+        <td>
+        <h4 class="card-title">'.$user['fName'].' '.$user['lName'].'</h4><br>
+        </td>
+        <td valign="top" align="right">
+       
+        </td>
+
+    </tr>
+    <tr><td>'.$user['email'].'</td></tr><tr><td>'.$user['date_of_birth'].'</td></tr>';
+       }
     }
+}
+function upload_image(){
+    $target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["myfile"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["post_status"])) {
+    $check = getimagesize($_FILES["myfile"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["myfile"]["size"] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $target_file)) {
+      echo "The file ". basename( $_FILES["myfile"]["name"]). " has been uploaded.";
+  } else {
+      echo "Sorry, there was an error uploading your file.";
+  }
+}
 }
 
 ?>

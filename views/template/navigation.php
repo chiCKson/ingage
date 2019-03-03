@@ -31,10 +31,20 @@
                      $full_name=get_user_full_name($_SESSION['current_user_email']);
                       echo '<a style="color:white" href="profile?email='.$_SESSION['current_user_email'].'">'.$full_name.'</a>';
                   }?></span>
-                  
-                  <a href="/signout"> <img src="assets/images/lgout.png"  width="40" height="40"></a> 
-                        
                 
+                   <div class="logout">
+                <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="signout()">
+                    <span class="glyphicon glyphicon-off"></span> Logout                    
+                </button>  
+                              
+            </div>
+                 
+                        
+                <script>
+                function signout(){
+                  location.href='/signout';
+                }
+                </script>
                 </div>
               </nav>
 

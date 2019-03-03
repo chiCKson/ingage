@@ -27,6 +27,9 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
         case '/home':
             require 'views/home.php';
             break;
+            case '/com':
+            require 'views/comments.php';
+            break;
         case '/signout':
             signout();
             require 'views/login.php';
