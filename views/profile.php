@@ -2,7 +2,8 @@
 <html>
 <body>
 <?php require_once('template/navigation.php');
-echo $_GET['id'];
+require_once('connection/connection.php');
+echo $_GET['uid'];
  ?>
 <main role="main" class="container">
  
@@ -14,8 +15,8 @@ echo $_GET['id'];
 			</td>
 			<td>
 			<?php
-			//not finish,have to give user_id`
-			$sql = "select `fName`, `lName` FROM `user` where `user_id`=1";
+			
+			$sql = "select `fName`, `lName` FROM `user` where `email`='".$_GET['userid']."'";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
    
@@ -36,8 +37,8 @@ echo $_GET['id'];
 		<tr>
 			<td>
 			<?php
-			//not finish,have to give user_id`
-			$sql = "select `sex` FROM `user` where `user_id`=1";
+			
+			$sql = "select `sex` FROM `user` where `email`='".$_GET['userid']."'";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
     
@@ -52,8 +53,8 @@ echo $_GET['id'];
 		<tr>
 			<td>
 			<?php
-			
-			$sql = "select `email` FROM `user` where `user_id`=1";
+		
+			$sql = "select `email` FROM `user` where `email`='".$_GET['userid']."'";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
 				
@@ -68,7 +69,15 @@ echo $_GET['id'];
 		
 	</table>
  
-
+<?php
+function get_data($sql){
+    $conn=connect();
+    $result=mysqli_query($conn,$sql); 
+    return $result;
+    mysqli_free_result($result);
+    disconnect($conn);
+}
+?>
 
  
 </div>
