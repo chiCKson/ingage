@@ -76,6 +76,30 @@ INSERT INTO `posts` VALUES (13,'asdf@g.kl','Erandra Jayasundara ','Roads in Colo
 UNLOCK TABLES;
 
 --
+-- Table structure for table `profile`
+--
+
+DROP TABLE IF EXISTS `profile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `profile` (
+  `user_email` varchar(100) NOT NULL,
+  `profile` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`user_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profile`
+--
+
+LOCK TABLES `profile` WRITE;
+/*!40000 ALTER TABLE `profile` DISABLE KEYS */;
+INSERT INTO `profile` VALUES ('asdf@g.kl','150641.jpg');
+/*!40000 ALTER TABLE `profile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -101,7 +125,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Erandra','Jayasundara','erandra','erandrajayasundara@gmail.com','Male','b37e0eec43049a49d6d22843dd7b1280','1993-05-21'),(2,'Madhavi','Jayarathne','madhij','upalakshi@gmail.com','Female','b37e0eec43049a49d6d22843dd7b1280','1995-08-26'),(3,'Erandra','Jayasundara','chickazone','asdf@g.kl','Male','d1205746e3192ca4641605d9f67cc897','1993-12-19');
+INSERT INTO `user` VALUES (1,'Erandra','Jayasundara','erandra','erandrajayasundara@gmail.com','Male','b37e0eec43049a49d6d22843dd7b1280','1993-05-21'),(2,'Madhavi','Jayarathne','madhij','upalakshi@gmail.com','Female','b37e0eec43049a49d6d22843dd7b1280','1995-08-26'),(3,'Chicka','Zon','2014/ict/15','asdf@g.kl','Male','d1205746e3192ca4641605d9f67cc897','1993-12-19');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-04 21:08:23
+-- Dump completed on 2019-03-04 22:09:52

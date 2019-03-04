@@ -126,12 +126,23 @@ echo '<br><div class="card">
 function get_profile(){
     $sql="select * from user where email='".$_GET['email']."'";
     $db = new DB();
+    $image='';
+    if(check_profile_exists($_GET['email'])){
+        $sql2="select * from profile where user_email='".$_GET['email']."'";
+        $profiles=$db->get_data($db->connect(),$sql2);
+        while($profile=mysqli_fetch_assoc($profiles)){
+            $image="uploads/profile/".$profile['profile'];
+        }
+        
+    }else{
+        $image="assets/images/logo.png";
+    }
     $users=$db->get_data($db->connect(),$sql);
     while($user=mysqli_fetch_assoc($users)){
        if($_GET['email']== $_SESSION['current_user_email']){
         echo '<tr>
         <td align="center" rowspan="3" width="30%">
-            <img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
+            <img style="width:250px;height:250px "src="'.$image.'" alt="Card image">
         </td>
         <td>
         <h4 class="card-title">'.$user['fName'].' '.$user['lName'].'</h4><br>
@@ -148,7 +159,7 @@ Edit Profile
        }else{
         echo '<tr>
         <td align="center" rowspan="3" width="30%">
-            <img style="width:250px;height:250px "src="assets/images/logo.png" alt="Card image">
+            <img style="width:250px;height:250px "src="'.$image.'" alt="Card image">
         </td>
         <td>
         <h4 class="card-title">'.$user['fName'].' '.$user['lName'].'</h4><br>
@@ -162,8 +173,8 @@ Edit Profile
        }
     }
 }
-function upload_image(){
-    $target_dir = "uploads/";
+function upload_image($dir){
+    $target_dir = $dir;
     $target_file = $target_dir . basename($_FILES["myfile"]["name"]);
     $uploadOk = 1;
     $msg='';
@@ -225,6 +236,35 @@ function get_all_events_name(){
     $events=$db->get_data($db->connect(),$sql);
     while($event=mysqli_fetch_assoc($events)){
         echo '<li class="list-group-item"><a href="">'.$event['name'].'</a></li>';
+    }
+}
+function update_profile(){
+    $sql1="update user set fName='".$_POST['fname']."',lName='".$_POST['lname']."',uName='".$_POST['username']."',email='".$_POST['email']."' where email='".$_SESSION['current_user_email']."'";
+    if(check_profile_exists($_SESSION['current_user_email'])){
+        $sql2="update profile set profile='".basename($_FILES['myfile']['name'])."' where user_email='".$_SESSION['current_user_email']."'";
+    }else{
+        $sql2="insert into profile values('".$_SESSION['current_user_email']."','".basename($_FILES['myfile']['name'])."')";
+    }
+   
+    
+    $db = new DB();
+    $db->set_data($db->connect(),$sql1);
+    if(basename($_FILES['myfile']['name']) !== ''){
+      
+        $db->set_data($db->connect(),$sql2);
+    }
+   
+    upload_image('uploads/profile/');
+}
+function check_profile_exists($email){
+    $sql = "select * from profile where user_email='".$email."'";
+    $db = new DB();
+    $users=$db->get_data($db->connect(),$sql);
+    $user=mysqli_fetch_assoc($users);
+    if($user==null){
+        return false;
+    }else{
+        return true;
     }
 }
 function get_events($sql){

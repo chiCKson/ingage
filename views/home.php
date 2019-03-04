@@ -66,7 +66,7 @@ require_once('template/navigation.php');
                 if(isset($_POST['post_status'])){
              
                   share_post();
-                  upload_image();
+                  upload_image('uploads/');
                 }
                 ?>
          </div> </td>
