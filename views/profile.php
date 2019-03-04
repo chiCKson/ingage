@@ -35,8 +35,13 @@ require_once('connection/connection.php');
 </main>
 
 <?php 
-require_once('template/modal/editprofile.php');
+
 require_once('template/footer.php');
  ?>
+ <script>
+function editprofile(){
+	location.href='/editprofile';
+}
+</script>
 </body>
 </html>

@@ -24,11 +24,11 @@ require_once('template/navigation.php');
 <td width="25%" valign="top" rowspan="2">
 <div class="card" style="width: 18rem;">
   <div class="card-header">
-    Events
+    Recent Events
   </div>
   <ul class="list-group list-group-flush">
   <?php 
-    get_all_events();
+    get_all_events_name();
     ?>
   </ul>
 </div>
@@ -46,7 +46,7 @@ require_once('template/navigation.php');
   
   
   
-  <div class="input-group">
+  <div id="image-upload-wrapper-id" class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
   </div>
@@ -60,10 +60,11 @@ require_once('template/navigation.php');
 
   <img id="blah" src="http://placehold.it/180" alt="your image" width="100" height="100" />
   <button type="submit" class="btn btn-primary" style="margin-right:10px;"  name="post_status" >Share</button>
+  <input type="button" id="upload-button" class="btn btn-upload" style="margin-right:10px;" onclick="showImageUpload()"  value ="Upload">
 </form> 
-            
                 <?php 
                 if(isset($_POST['post_status'])){
+             
                   share_post();
                   upload_image();
                 }
@@ -89,7 +90,7 @@ get_all_posts();
 <script>
 
     $('#blah').hide();
-    
+    $('#image-upload-wrapper-id').hide();
  
 
 </script>

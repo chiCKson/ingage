@@ -99,11 +99,6 @@ function get_user_profile(){
         $_POST['alert-message']='You are not logged in. Please Log in to access the page.';
         require 'views/login.php';
     }else{
-        if($_GET == null){
-            $uid = "test1234";
-            $url = "/profile?id=".$uid;
-            header('Location: '.$url);
-        }
         require 'views/profile.php';
     }
 }
@@ -142,7 +137,8 @@ function get_profile(){
         <h4 class="card-title">'.$user['fName'].' '.$user['lName'].'</h4><br>
         </td>
         <td valign="top" align="right">
-        <button type="button" class="btn btn-primary" style="margin:10px" data-toggle="modal" data-target="#myModal" name="edit_btn">
+        <button type="button" class="btn btn-primary" style="margin:10px"  onclick="editprofile()" name="edit_btn">
+        
 Edit Profile
 </button>
         </td>
@@ -218,17 +214,48 @@ function upload_image(){
     }
 }
 function add_event(){
-    $sql = "insert into events (name,date,description,location) values('".$_POST['event_name']."','".$_POST['event_date']."','".$_POST['description']."','".$_POST['location']."')";
+    $sql = "insert into events (user_email,name,date,description,location,facebook,twitter,google_plus,website) values('".$_SESSION['current_user_email']."','".$_POST['event_name']."','".$_POST['event_date']."','".$_POST['description']."','".$_POST['location']."','".$_POST['facebook']."','".$_POST['twitter']."','".$_POST['google-plus']."','".$_POST['website']."')";
     $db = new DB();
     $db->set_data($db->connect(),$sql);
     header('Location: /home');
 }
-function get_all_events(){
-    $sql="select * from events";
+function get_all_events_name(){
+    $sql="select * from events order by date desc limit 5";
     $db = new DB();
     $events=$db->get_data($db->connect(),$sql);
     while($event=mysqli_fetch_assoc($events)){
         echo '<li class="list-group-item"><a href="">'.$event['name'].'</a></li>';
+    }
+}
+function get_events($sql){
+    
+    $db = new DB();
+    $months = array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July ', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', );
+    $events=$db->get_data($db->connect(),$sql);
+    while($event=mysqli_fetch_assoc($events)){
+        echo '<li>
+        <time datetime="'.$event['date'].'">
+            <span class="day">'.substr($event['date'],8,10).'</span>
+            <span class="month">'.$months[(int)substr($event['date'],5,7)-1].'</span>
+            <span class="year">'.substr($event['date'],0,4).'</span>
+            <span class="time">12:00 AM</span>
+        </time>
+        <div class="info">
+            <h2 class="title">'.$event['name'].'</h2>
+            <p class="desc">'.$event['description'].'</p>
+            <ul>
+                <li style="width:50%;"><a href="'.$event['website'].'"><span class="fa fa-globe"></span> Website</a></li>
+                
+            </ul>
+        </div>
+        <div class="social">
+            <ul>
+                <li class="facebook" style="width:33%;"><a href="'.$event['facebook'].'"><span class="fa fa-facebook"></span></a></li>
+                <li class="twitter" style="width:34%;"><a href="'.$event['twitter'].'"><span class="fa fa-twitter"></span></a></li>
+                <li class="google-plus" style="width:33%;"><a href="'.$event['google_plus'].'"><span class="fa fa-google-plus"></span></a></li>
+            </ul>
+        </div>
+    </li>';
     }
 }
 

@@ -11,24 +11,54 @@ require('views/template/header.php');
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="form_name">Event Name *</label>
-                        <input name="event_name" type="text" name="surname" class="form-control" placeholder="Please enter event name *" required="required" data-error="name is required.">
+                        <input name="event_name" type="text"  class="form-control" placeholder="Please enter event name *" required="required" data-error="name is required.">
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="form_email">Date *</label>
-                        <input name="event_date" type="date" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                        <input name="event_date" type="date"  class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="form_phone">Location</label>
-                        <input name="location" type="tel" name="phone" class="form-control" placeholder="Please enter event location">
+                        <input name="location" type="tel"  class="form-control" placeholder="Please enter event location">
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Facebook </label>
+                        <input name="facebook" type="text"  class="form-control" placeholder="Please enter facebook link ">
+                        <div class="help-block with-errors"></div>
+                    </div>
+            </div>
+            <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Twitter </label>
+                        <input name="twitter" type="text"  class="form-control" placeholder="Please enter twitter link ">
+                        <div class="help-block with-errors"></div>
+                    </div>
+            </div>
+            <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Google + </label>
+                        <input name="google-plus" type="text"  class="form-control" placeholder="Please enter google+ link ">
+                        <div class="help-block with-errors"></div>
+                    </div>
+            </div>
+            <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form_name">Website </label>
+                        <input name="website" type="text"  class="form-control" placeholder="Please enter website url ">
+                        <div class="help-block with-errors"></div>
+                    </div>
             </div>
         </div>
         <div class="clearfix"></div>

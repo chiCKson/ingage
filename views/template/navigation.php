@@ -19,9 +19,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                           <a class="dropdown-item" href="/create_events">Create Events</a>
-                          <a class="dropdown-item" href="#">View Events</a>
+                          <a class="dropdown-item" href="/all-events">View Events</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="/total-pollution/">Total Pollution</a>
+                          <a class="dropdown-item" href="/my-events">My Events</a>
                         </div>
                       </li>
                   </ul>
